@@ -3,20 +3,18 @@ package com.purusottam.flipkartbackend.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "Category")
+@Document
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long categoryId;
+    private String categoryId;
     private String categoryName;
     private String description;
     // Like foot ware is the parent of -> shoes and sleeper
-    private Long parentId;
+    private String parentId;
 }

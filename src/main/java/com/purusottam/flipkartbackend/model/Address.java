@@ -3,23 +3,22 @@ package com.purusottam.flipkartbackend.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "Address")
+@Document
 public class Address {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long addressId;
+    private String addressId;
     private String address1;
     private Integer pinCode;
     private String state;
     private String city;
     // Optional
     private String landmark;
-    private Long customerId;
+    private String customerId;
 }
