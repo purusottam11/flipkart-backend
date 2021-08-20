@@ -3,16 +3,14 @@ package com.purusottam.flipkartbackend.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "Payment")
+@Document
 public class Payment {
     public enum PaymentType {
         UPI("UPI "), PAYPAL("Paypal"), CREDIT_CARD("Credit Card");
@@ -29,8 +27,8 @@ public class Payment {
 
     // This has to come from payment gateway
     @Id
-    private Long paymentId;
-    private Long customerId;
+    private String paymentId;
+    private String customerId;
     private Integer amount;
     private PaymentType paymentType;
     // It's like paypal id or upid etc

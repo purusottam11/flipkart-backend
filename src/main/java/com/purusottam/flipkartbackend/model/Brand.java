@@ -3,19 +3,18 @@ package com.purusottam.flipkartbackend.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 import javax.validation.constraints.Email;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "Brand")
+@Document
 public class Brand {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long brandId;
+    private String brandId;
     private String brandName;
     private String description;
     private String websiteUrl;

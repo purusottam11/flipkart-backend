@@ -4,15 +4,15 @@ package com.purusottam.flipkartbackend.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 import javax.validation.constraints.Email;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "Customer")
+@Document
 public class Customer {
     public enum Gender {
         MALE("Male "), FEMALE("Female");
@@ -28,8 +28,7 @@ public class Customer {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long customerId;
+    private String customerId;
     private String firstName;
     private String lastName;
     @Email

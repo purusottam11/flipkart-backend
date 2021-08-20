@@ -3,21 +3,20 @@ package com.purusottam.flipkartbackend.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 import java.time.Instant;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "Cart")
+@Document
 public class Cart {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cartId;
-    private Long customerId;
-    private Long productId;
+    private String cartId;
+    private String customerId;
+    private String productId;
     private Integer quantity;
     // Price total Item
     private Integer price;
